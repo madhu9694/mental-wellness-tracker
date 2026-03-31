@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Grind &amp; Glow</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-brand">🌸 Grind &amp; Glow</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="habits.html">Habits</a>
+      <a href="doodle.html">Doodle</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+  </nav>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="dashboard-layout">
+
+    <!-- GREETING + DATE -->
+    <section class="dash-greeting">
+      <div>
+       
+        <h1 class="dash-title">
+          Good <span id="timeOfDay">Morning</span>,
+          <span id="userName">Friend</span> 👋
+        </h1>
+        <p class="dash-date" id="todayDate">Loading date...</p>
+      </div>
+
+    
+      <div class="dash-quote" id="dailyQuote">Loading quote...</div>
+    </section>
+
+   
+    <section class="mood-card card">
+      <h2 class="card-title">How are you feeling today?</h2>
+      <p class="card-sub">Tap an emoji to log your mood for today</p>
+
+      
+      <div class="mood-buttons" id="moodButtons">
+        <div class="mood-btn-wrapper">
+          <button class="mood-btn" data-mood="happy"   data-label="Happy">😊</button>
+          <span class="mood-label">Happy</span>
+        </div>
+        <div class="mood-btn-wrapper">
+          <button class="mood-btn" data-mood="neutral" data-label="Neutral">😐</button>
+          <span class="mood-label">Neutral</span>
+        </div>
+        <div class="mood-btn-wrapper">
+          <button class="mood-btn" data-mood="sad"     data-label="Sad">😢</button>
+          <span class="mood-label">Sad</span>
+        </div>
+        <div class="mood-btn-wrapper">
+          <button class="mood-btn" data-mood="angry"   data-label="Stressed">😡</button>
+          <span class="mood-label">Stressed</span>
+        </div>
+        <div class="mood-btn-wrapper">
+          <button class="mood-btn" data-mood="tired"   data-label="Tired">😴</button>
+          <span class="mood-label">Tired</span>
+        </div>
+      </div>
+
+      <!-- Shows the currently selected mood -->
+      <div class="mood-selected" id="moodSelected">
+        No mood logged yet today.
+      </div>
+    </section>
+
+    
+    <section class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number" id="totalHabits">0</div>
+        <div class="stat-label">Total Habits</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="completedToday">0</div>
+        <div class="stat-label">Done Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="completionPct">0%</div>
+        <div class="stat-label">Completion</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="bestStreak">0🔥</div>
+        <div class="stat-label">Best Streak</div>
+      </div>
+    </section>
+
+    <!-- Daily Progress Bar -->
+    <div class="card" style="padding: 1.25rem 1.75rem;">
+      <div class="progress-bar-label">
+        <span>Today's Progress</span>
+        <span id="progressBarLabel">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- =================== -->
+    <!--   QUICK HABITS      -->
+    <!-- =================== -->
+    <section class="quick-habits card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+        <h2 class="card-title" style="margin:0;">Today's Habits</h2>
+        <a href="habits.html" class="btn btn-soft" style="padding:0.35rem 0.85rem; font-size:0.85rem;">
+          Manage All →
+        </a>
+      </div>
+      <p class="card-sub">A quick view of your habits — go to Habits page to add or edit</p>
+      <!-- Filled by dashboard.js -->
+      <div id="quickHabitsList" class="quick-habits-list">
+        <p class="empty-state">Loading habits...</p>
+      </div>
+    </section>
+
+    <!-- =================== -->
+    <!--  MOOD HISTORY       -->
+    <!-- =================== -->
+    <section class="mood-history-section card">
+      <h2 class="card-title">Mood History</h2>
+      <p class="card-sub">Your last 14 days of mood logs</p>
+      <!-- Filled by dashboard.js -->
+      <div class="mood-history-grid" id="moodHistoryGrid">
+        <p class="empty-state">No history yet. Start logging your mood above!</p>
+      </div>
+    </section>
+
+    
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>🌸 Grind &amp; Glow &copy; 2025 — Made with love for your wellness</p>
+  </footer>
+
+  <!-- Toast notification (added by JS) -->
+  <div id="toast"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

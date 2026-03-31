@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Habits — Grind &amp; Glow</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/habits.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-brand">🌸 Grind &amp; Glow</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="habits.html" class="active">Habits</a>
+      <a href="doodle.html">Doodle</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+  </nav>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="habits-layout">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Habit Tracker</h1>
+      <p>Build your routine, track your streaks, and celebrate your progress.</p>
+    </div>
+
+    <!-- ======================== -->
+    <!--   INSIGHTS (STATS)       -->
+    <!-- ======================== -->
+    <!--
+      Numbers are updated by habits.js whenever habits change.
+    -->
+    <section class="insights-card card">
+      <h2 class="card-title"> Today's Insights</h2>
+      <div class="insights-grid">
+        <div class="insight-item">
+          <div class="insight-value" id="insightTotal">0</div>
+          <div class="insight-label">Total Habits</div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-value" id="insightDone">0</div>
+          <div class="insight-label">Completed Today</div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-value" id="insightPct">0%</div>
+          <div class="insight-label">Completion Rate</div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-value" id="insightBest">0🔥</div>
+          <div class="insight-label">Best Streak</div>
+        </div>
+      </div>
+
+      <!-- Progress bar showing completion % -->
+      <div class="habits-progress-bar">
+        <div class="progress-bar-label">
+          <span>Daily Completion</span>
+          <span id="habitsProgressPct">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="habitsProgressBar" style="width: 0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== -->
+    <!--   ADD HABIT FORM         -->
+    <!-- ======================== -->
+    <section class="add-habit-card card">
+      <h2 class="card-title"> Add a New Habit</h2>
+    
+
+      <!--
+        The form ID is "addHabitForm" — habits.js listens for its submit event.
+        "novalidate" turns off the browser's default popup validation (we handle it in JS).
+      -->
+      <form class="add-habit-form" id="addHabitForm" novalidate>
+        <input
+          type="text"
+          id="habitInput"
+          class="habit-input"
+          
+          maxlength="60"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn btn-primary">Add Habit</button>
+      </form>
+    </section>
+
+   
+    <section class="habits-section card">
+      <h2 class="card-title">Your Habits</h2>
+      <p class="card-sub">Check off habits as you complete them each day</p>
+
+      
+      <div class="habits-list" id="habitsList">
+        <!-- JS will fill this in -->
+        <div class="habits-empty">
+          <span class="habits-empty-icon">🌱</span>
+          <p>No habits yet! Add one above to get started.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>🌸 Grind &amp; Glow &copy; 2025 — Keep grinding, keep glowing 💕</p>
+  </footer>
+
+  <!-- Toast notification -->
+  <div id="toast"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/habits.js"></script>
+</body>
+</html>

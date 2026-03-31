@@ -1,0 +1,220 @@
+/* ============================================
+   GRIND & GLOW — Habits Page Styles
+   ============================================ */
+
+.habits-layout {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.page-header {
+  margin-bottom: 0.5rem;
+}
+.page-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+.page-header p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ---- ADD HABIT FORM ---- */
+.add-habit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.add-habit-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.habit-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.7rem 1rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+}
+.habit-input:focus {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(255, 123, 172, 0.15);
+}
+.habit-input::placeholder { color: var(--text-muted); }
+
+/* ---- HABIT LIST ---- */
+.habits-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.habits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  transition: var(--transition);
+  animation: slideIn 0.3s ease both;
+}
+.habit-item:hover { border-color: var(--pink-200); box-shadow: var(--shadow-sm); }
+.habit-item.completed {
+  background: linear-gradient(135deg, var(--pink-50), var(--accent-light));
+  border-color: var(--pink-200);
+}
+
+/* Checkbox */
+.habit-checkbox {
+  width: 26px; height: 26px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.habit-checkbox:hover { border-color: var(--accent); background: var(--accent-light); }
+.habit-item.completed .habit-checkbox {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: white;
+}
+
+/* Name */
+.habit-name {
+  flex: 1;
+  font-size: 0.97rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+.habit-item.completed .habit-name {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Streak badge */
+.habit-streak {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--accent-light);
+  border: 1px solid var(--pink-200);
+  border-radius: 50px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  white-space: nowrap;
+}
+
+/* Delete button */
+.habit-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.4;
+  transition: var(--transition);
+  padding: 0.2rem;
+  border-radius: 4px;
+  color: var(--text-primary);
+}
+.habit-delete:hover { opacity: 1; background: var(--danger); }
+
+/* Empty state */
+.habits-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+}
+.habits-empty-icon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
+.habits-empty p { font-size: 0.92rem; }
+
+/* ---- INSIGHTS CARD ---- */
+.insights-card {
+  background: linear-gradient(135deg, var(--pink-50) 0%, var(--accent-light) 100%);
+  border: 1px solid var(--pink-200);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+body.dark .insights-card {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.insight-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+}
+
+.insight-value {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.insight-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+/* Progress bar in habits */
+.habits-progress-bar {
+  margin-top: 1.25rem;
+}
+
+/* ---- ANIMATION ---- */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .insights-grid { grid-template-columns: repeat(2, 1fr); }
+  .add-habit-form { flex-direction: column; }
+  .habit-input { min-width: unset; }
+}

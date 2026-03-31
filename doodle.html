@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doodle Pad — Grind &amp; Glow</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/doodle.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-brand">Grind &amp; Glow</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="habits.html">Habits</a>
+      <a href="doodle.html" class="active">Doodle</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+  </nav>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="doodle-layout">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Doodle Pad</h1>
+      <p>Express yourself freely. Draw, sketch, or just scribble to de-stress.</p>
+    </div>
+
+    <!-- ======================== -->
+    <!--   CANVAS CARD            -->
+    <!-- ======================== -->
+    <section class="canvas-card card">
+
+      <!-- TOOLBAR -->
+      <div class="canvas-toolbar">
+
+        <!-- Tool Mode: Pen / Eraser -->
+        <div class="tool-group">
+          <!-- id="toolPen" and id="toolEraser" → doodle.js manages active state -->
+          <button class="tool-btn active" id="toolPen"    title="Draw mode"> Pen</button>
+          <button class="tool-btn"        id="toolEraser" title="Erase mode">Eraser</button>
+        </div>
+
+        <!-- Color Swatches -->
+        <!--
+          data-color → the hex color that gets applied when clicked.
+          doodle.js reads this value and sets it as the stroke color.
+        -->
+        <div class="color-group">
+          <label>Color:</label>
+
+          <!-- Pink (default) -->
+          <button
+            class="color-swatch"
+            data-color="#ff7bac"
+            style="background:#ff7bac;"
+            title="Pink"
+            aria-label="Pink"
+          ></button>
+
+          <!-- Soft Purple -->
+          <button
+            class="color-swatch"
+            data-color="#b084f5"
+            style="background:#b084f5;"
+            title="Purple"
+            aria-label="Purple"
+          ></button>
+
+          <!-- Coral -->
+          <button
+            class="color-swatch"
+            data-color="#ff7f6e"
+            style="background:#ff7f6e;"
+            title="Coral"
+            aria-label="Coral"
+          ></button>
+
+          <!-- Sky Blue -->
+          <button
+            class="color-swatch"
+            data-color="#5bc4f5"
+            style="background:#5bc4f5;"
+            title="Sky Blue"
+            aria-label="Sky Blue"
+          ></button>
+
+          <!-- Black -->
+          <button
+            class="color-swatch"
+            data-color="#2d2d2d"
+            style="background:#2d2d2d;"
+            title="Dark"
+            aria-label="Dark"
+          ></button>
+
+        </div>
+
+        <!-- Brush Size Slider -->
+        <div class="size-group">
+          <label for="brushSize">Size:</label>
+          <!--
+            id="brushSize" → doodle.js reads this value on 'input' event
+            value="5"      → default brush size in pixels
+          -->
+          <input
+            type="range"
+            id="brushSize"
+            class="brush-size-input"
+            min="2"
+            max="30"
+            value="5"
+            aria-label="Brush size"
+          />
+          <!-- Shows a preview dot that changes size with the slider -->
+          <div class="size-preview">
+            <div class="size-dot" id="sizeDot" style="width:5px; height:5px;"></div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="toolbar-actions">
+          <!-- id="clearCanvas" → doodle.js listens for click, then clears the canvas -->
+          <button class="btn btn-soft" id="clearCanvas">Clear</button>
+          <!-- id="downloadCanvas" → doodle.js saves the canvas as a PNG file -->
+          <button class="btn btn-primary" id="downloadCanvas"> Save</button>
+        </div>
+
+      </div><!-- end toolbar -->
+
+      <!-- THE CANVAS -->
+      <!--
+        The <canvas> element is where all drawing happens.
+        id="doodleCanvas" → doodle.js targets this element.
+        width/height are set dynamically by JS to match the container size.
+        CSS handles the visual display size.
+      -->
+      <div class="canvas-wrapper">
+        <canvas id="doodleCanvas" width="800" height="440">
+          <!-- Fallback message for very old browsers -->
+          Your browser does not support the Canvas element.
+        </canvas>
+      </div>
+
+      
+
+    </section><!-- end canvas card -->
+
+    
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>🌸 Grind &amp; Glow &copy; 2025 — Express, release, and glow 💕</p>
+  </footer>
+
+  <!-- Toast notification -->
+  <div id="toast"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/doodle.js"></script>
+</body>
+</html>

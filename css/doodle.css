@@ -1,0 +1,175 @@
+/* ============================================
+   GRIND & GLOW — Doodle Page Styles
+   ============================================ */
+
+.doodle-layout {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ---- CANVAS CARD ---- */
+.canvas-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.canvas-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+/* Color swatches */
+.color-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.color-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.color-swatch {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  outline: none;
+}
+.color-swatch:hover { transform: scale(1.2); }
+.color-swatch.active {
+  border-color: var(--text-primary);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--text-primary);
+}
+
+/* Brush size */
+.size-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.size-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.brush-size-input {
+  width: 90px;
+  accent-color: var(--accent-dark);
+}
+.size-preview {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+}
+.size-dot {
+  background: var(--text-primary);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+/* Toolbar right side */
+.toolbar-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ---- CANVAS ITSELF ---- */
+.canvas-wrapper {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  cursor: crosshair;
+}
+body.dark .canvas-wrapper { background: #1a0d14; }
+
+#doodleCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+/* Canvas instructions */
+.canvas-hint {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* ---- TOOL MODE BUTTONS ---- */
+.tool-group {
+  display: flex;
+  gap: 0.4rem;
+}
+.tool-btn {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+.tool-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+.tool-btn.active {
+  background: var(--accent-light);
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
+}
+
+/* ---- TIPS CARD ---- */
+.tips-card {
+  background: linear-gradient(135deg, var(--pink-50), var(--accent-light));
+  border: 1px solid var(--pink-200);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+}
+body.dark .tips-card {
+  background: linear-gradient(135deg, var(--surface), var(--surface-2));
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+}
+.tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .canvas-toolbar { gap: 0.75rem; }
+  .toolbar-actions { margin-left: 0; width: 100%; }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Log In — Grind &amp; Glow</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a href="index.html" style="text-decoration:none;color:inherit;">🌸 Grind &amp; Glow</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="signup.html">Sign Up</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+  </nav>
+
+  <!-- ============ AUTH PAGE ============ -->
+  <div class="auth-page">
+
+    <div class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-header">
+        
+        <h1>Welcome Back!</h1>
+        <p>Continue your glow-up journey</p>
+      </div>
+
+      <!-- Login Form -->
+      <form class="auth-form" id="loginForm" novalidate>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+          />
+          <span class="form-error" id="emailError"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="password"
+              placeholder="Your password"
+              autocomplete="current-password"
+            />
+            <button type="button" class="toggle-pw" id="togglePw" aria-label="Toggle password visibility">👁</button>
+          </div>
+          <span class="form-error" id="passwordError"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Log In</button>
+
+      </form>
+
+      <!-- Switch to signup -->
+      <p class="auth-switch">
+        New here? <a href="signup.html">Create an Account</a>
+      </p>
+
+      
+    </div>
+
+    
+
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
